@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:Android="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchWords_fatherLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E6E0"
+    android:orientation="vertical"
+    tools:context="com.writing.hlyin.dicttest.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2C2C2C">
+
+        <!--搜索框-->
+        <SearchView
+            android:id="@+id/searchWords_searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:queryHint="请输入单词"
+            android:searchIcon="@android:drawable/ic_menu_search" />
+
+        <!--模式选择下拉框-->
+        <Spinner
+            android:id="@+id/matchMode_spinner"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+
+            android:layout_marginTop="8dp"
+            android:entries="@array/spingarr" />
+    </RelativeLayout>
+
+
+    <!--页面过长时滚动-->
+    <ScrollView
+        android:id="@+id/home_scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/daily_ImageView"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/img5"
+                android:scaleType="fitXY" />
+
+            <!--首页样式-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp">
+
+
+                <TextView
+                    android:id="@+id/publishTime_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/publishTime"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/publishTime_value_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/publishTime_textView"
+                    android:text="2015-05-18"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/viewCount_value_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:text="10385"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/viewCount_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_toLeftOf="@id/viewCount_value_textView"
+                    android:text="@string/viewCount"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/dailySent_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/publishTime_textView"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/dailySent"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/dailySent_value_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dailySent_textView"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/dailySentValue"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/dailyTrans_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dailySent_value_textView"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/dailyTrans"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/dailyTrans_value_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dailyTrans_textView"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/dailyTransValue"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!--候选词ListView-->
+    <ListView
+        android:id="@+id/candidate_listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="100dp"
+        android:background="#969696" />
+
+
+    <!--页面过长时滚动-->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <!--查询结果布局-->
+        <LinearLayout
+            android:id="@+id/searchWords_linerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <!--查询词-->
+            <TextView
+                android:id="@+id/searchWords_key"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="abrogate"
+                android:textColor="#000000"
+                android:textSize="35sp" />
+
+            <!--音标-->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/searchWords_posE_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/searchWords_voiceE"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/horn_dict" />
+
+                    <TextView
+                        android:id="@+id/searchWords_psE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="7dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="3dp"
+                        android:text="@string/psE"
+                        android:textColor="#3B3C3D"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="35dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="/"
+                        android:textColor="#6C6C6C"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/searchWords_posA_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="140dp">
+
+                    <ImageButton
+                        android:id="@+id/searchWords_voiceA"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/horn_dict" />
+
+                    <TextView
+                        android:id="@+id/searchWords_psA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="7dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="3dp"
+                        android:text="@string/psA"
+                        android:textColor="#3B3C3D"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-->> 基本释义-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/right_cursor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/posAcceptation"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/searchWords_posAcceptation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layer_list_view"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/pos"
+                    android:textSize="15dp" />
+
+                <!-->> 例句-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/right_cursor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/sent"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/searchWords_sent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layer_list_view"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/pos"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
